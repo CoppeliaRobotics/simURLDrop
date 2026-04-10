@@ -1,4 +1,4 @@
-#include <simPlusPlus/Plugin.h>
+#include <simPlusPlus-2/Plugin.h>
 #include "config.h"
 #include "plugin.h"
 #include "stubs.h"
@@ -42,7 +42,7 @@ public:
         p.startDetached();
 #elif __APPLE__
         QString app = "Safari";
-        auto useDefaultBrowser = sim::getNamedBoolParam("simURLDrop.useDefaultBrowser");
+        auto useDefaultBrowser = sim::getBoolProperty(sim_handle_app, "namedParam.simURLDrop.useDefaultBrowser", {});
         if(!useDefaultBrowser || *useDefaultBrowser)
         {
             QSettings launchServ(QDir::homePath() + "/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist", QSettings::NativeFormat);
@@ -92,7 +92,7 @@ public:
                 {
                     QUrl url(QString::fromStdString(in->url));
                     QFileInfo fileInfo(url.path());
-                    std::string path = sim::getStringParam(sim_stringparam_tempdir) + "/" + fileInfo.fileName().toStdString();
+                    std::string path = sim::getStringProperty(sim_handle_app, "tempPath") + "/" + fileInfo.fileName().toStdString();
                     QFile file(QString::fromStdString(path));
                     if(file.open(QIODevice::WriteOnly))
                     {
