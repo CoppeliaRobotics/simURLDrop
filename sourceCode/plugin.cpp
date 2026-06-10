@@ -22,9 +22,6 @@ public:
     {
         if(!registerScriptStuff())
             throw std::runtime_error("failed to register script stuff");
-
-        setExtVersion("URL Drop Plugin");
-        setBuildDate(BUILD_DATE);
     }
 
     void openURL(openURL_in *in, openURL_out *out)

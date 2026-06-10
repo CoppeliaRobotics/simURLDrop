@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <?xml-stylesheet type="text/xsl" href="callbacks.xsl"?>
 
-<plugin name="simURLDrop" author="federico.ferri.it@gmail.com">
+<plugin name="simURLDrop" info="URL Drop Plugin" author="federico.ferri.it@gmail.com">
     <description>Plugin for opening scene/models from URLs</description>
     <command name="openURL">
         <description>Opens a URL using the system's default browser.</description>
